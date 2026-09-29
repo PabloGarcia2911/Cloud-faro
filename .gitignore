@@ -1,0 +1,17 @@
+target/
+node_modules/
+dist/
+.test-build/
+.env
+.env.*
+!.env.example
+*.db
+*.db-*
+*.log
+*.pem
+*.key
+*.p12
+*.jks
+.idea/
+.vscode/
+Cloud-faro.zip
