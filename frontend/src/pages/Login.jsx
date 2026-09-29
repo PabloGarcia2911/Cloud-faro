@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { api, errorMessage } from "../api";
+import { useState } from "react";
+import { errorMessage } from "../api";
 import Notice from "../components/Notice";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
@@ -9,14 +9,7 @@ export default function Login() {
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
-  const [info, setInfo] = useState("");
   const [needsPassword, setNeedsPassword] = useState(false);
-  useEffect(() => {
-    api
-      .get("/public/info")
-      .then((r) => setInfo(r.data.description))
-      .catch(() => setInfo("API pendiente de conexión."));
-  }, []);
   if (claimsFromToken(token)) return <Navigate to="/productos" replace />;
   async function submit(e) {
     e.preventDefault();
@@ -40,25 +33,21 @@ export default function Login() {
   return (
     <section className="login">
       <div>
-        <p className="eyebrow">ACTIVIDAD SUMATIVA Nº1</p>
+        <p className="eyebrow">BIENVENIDO A FARO</p>
         <h1>
-          Un catálogo.
+          Encuentra lo que
           <br />
-          Tres roles.
-          <br />
-          Acceso seguro.
+          necesitas.
         </h1>
-        <p>{info}</p>
-        <p>Inicia sesión con tu cuenta académica de Cognito.</p>
+        <p>Explora nuestro catálogo y escríbenos cuando necesites ayuda.</p>
       </div>
       <form key={needsPassword ? "new-password" : "login"} onSubmit={submit}>
         <h2>
-          {needsPassword ? "Define tu contraseña" : "Bienvenido a Cloud-faro"}
+          {needsPassword ? "Define tu contraseña" : "Entra a tu cuenta"}
         </h2>
         {needsPassword ? (
           <p>
-            Tu cuenta usa una contraseña temporal. Elige una nueva que cumpla la
-            política del User Pool.
+            Antes de continuar, cambia tu contraseña temporal por una que solo tú conozcas.
           </p>
         ) : (
           <label>
@@ -116,7 +105,7 @@ export default function Login() {
           </button>
         )}
         <small>
-          La sesión se mantiene en memoria y termina al recargar la página.
+          Si recargas la página, tendrás que volver a iniciar sesión.
         </small>
       </form>
     </section>

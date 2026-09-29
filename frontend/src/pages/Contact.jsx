@@ -44,7 +44,7 @@ export default function Contact() {
     <section>
       <p className="eyebrow">CONTACTO</p>
       <h1>Conversemos</h1>
-      <p>Envía un mensaje al equipo administrador.</p>
+      <p>¿Tienes una consulta? Estamos para ayudarte.</p>
       <Notice error={error} success={success} />
       <form onSubmit={submit}>
         <label>

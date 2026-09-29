@@ -57,7 +57,7 @@ test("claims inválidos o desconocidos no conceden roles", () => {
 test("la aplicación permite volver a ingresar con un token vencido sin bucle de redirección", async () => {
   setAuth({ token: jwt(["ADMIN"], 1), roles: [], logout: () => {} });
   show("/productos");
-  await screen.findByText("API académica");
+  await screen.findByText("Entra a tu cuenta");
   assert.ok(screen.getByText("Iniciar sesión"));
 });
 test("ADMIN crea, edita y elimina usando los contratos reales del backend", async () => {

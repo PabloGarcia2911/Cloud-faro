@@ -67,10 +67,10 @@ export default function Products({ admin = false }) {
   return (
     <section>
       <p className="eyebrow">{admin ? "ADMINISTRACIÓN" : "CATÁLOGO"}</p>
-      <h1>{admin ? "Mantenedor de productos" : "Productos"}</h1>
+      <h1>{admin ? "Gestiona tus productos" : "Productos"}</h1>
       <p>
         {admin
-          ? "Crea, actualiza y elimina los productos del catálogo."
+          ? "Mantén tu catálogo al día."
           : "Consulta los productos disponibles y su stock."}
       </p>
       <Notice error={error} success={success} />

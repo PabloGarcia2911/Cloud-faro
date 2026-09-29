@@ -10,9 +10,8 @@ export default function App() {
     <>
       <header>
         <NavLink className="brand" to="/productos">
-          ◈ Cloud-faro
+          ◈ Faro
         </NavLink>
-        <span className="tag">Laboratorio académico</span>
         <nav>
           {token ? (
             <>
@@ -49,9 +48,7 @@ export default function App() {
           />
         </Routes>
       </main>
-      <footer>
-        Cloud-faro · Spring Boot + React + SQLite · Identidad con Amazon Cognito
-      </footer>
+      <footer>Faro · Encuentra lo que buscas</footer>
     </>
   );
 }
